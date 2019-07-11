@@ -99,12 +99,12 @@ public class BattleShip {
         int mapLength = map.length;
         System.out.println("Computer is deploying ships");
         for(int i = 1; i < 6; i++) {
-            int x = rand.nextInt(mapLength);
-            int y = rand.nextInt(mapLength);
-            while(map[x][y] != ' ') {
+            int x;
+            int y;
+            do {
                 x = rand.nextInt(mapLength);
                 y = rand.nextInt(mapLength);
-            }
+            } while (map[x][y] != ' ');
             map[x][y] = '2';
             System.out.println(i + ". ship DEPLOYED");
         }
@@ -170,12 +170,13 @@ public class BattleShip {
 
             // Computer's turn logic
             Random rand = new Random();
-            int computerX = rand.nextInt(mapLength);
-            int computerY = rand.nextInt(mapLength);
-            while(!validMove(map, computerX, computerY, computerGuesses, '2')) {
+            int computerX;
+            int computerY;
+            do {
                 computerX = rand.nextInt(mapLength);
                 computerY = rand.nextInt(mapLength);
-            }
+            } while (!validMove(map, computerX, computerY, computerGuesses, '2'));
+
             if (map[computerY][computerX] == '1') {
                 System.out.println("Computer sunk one of your ships");
                 map[computerY][computerX] = '#';
