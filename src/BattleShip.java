@@ -137,8 +137,8 @@ public class BattleShip {
     public static void main(String[] args) {
         char[][] map = generateMap(10,10);
         printMap(map);
-//        map = generateUserShips(map);
-        map = generateUserTestShips(map);
+        map = generateUserShips(map);
+//        map = generateUserTestShips(map);
         printMap(map, '1', '@');
         map = generateComputerShips(map);
         int userShipsCount = 5;
